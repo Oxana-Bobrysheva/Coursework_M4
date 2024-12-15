@@ -1,6 +1,12 @@
 from src.API_interaction import HH
 from src.files import JsonFile
-from src.utils import filter_vacancies, get_top_vacancies, get_vacancies_by_salary, print_vacancies, sort_vacancies
+from src.utils import (
+    filter_vacancies,
+    get_top_vacancies,
+    get_vacancies_by_salary,
+    print_vacancies,
+    sort_vacancies,
+)
 from src.vacancies import Vacancy
 
 # Пример работы конструктора класса с одной вакансией
@@ -11,7 +17,7 @@ vacancy = Vacancy(
     "10000-1500000 руб.",
     "Яндекс",
     "Требования: опыт работы от 3 лет...",
-    "Частичная занятость"
+    "Частичная занятость",
 )
 vacancy_3 = Vacancy(
     "121",
@@ -20,9 +26,10 @@ vacancy_3 = Vacancy(
     "100 000-150 000 руб.",
     "Яндекс",
     "Требования: опыт работы от 3 лет...",
-    "Частичная занятость")
+    "Частичная занятость",
+)
 
-print(vacancy.vacancy_id)
+print(vacancy.id)
 print(vacancy.name)
 print(vacancy.link)
 print(vacancy.salary_from)
@@ -36,7 +43,6 @@ vacancy_dict = vacancy.object_to_dict()
 
 # Пример работы с файлами
 json_saver = JsonFile()
-
 
 # Сохранение информации о вакансиях в файл
 json_saver.add_vacancy(vacancy)

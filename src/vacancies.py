@@ -1,10 +1,19 @@
 import re
 
+
 class Vacancy:
     """Class to create vacancies"""
 
-    def __init__(self, vacancy_id: str, name: str, link: str, salary: str | dict,
-        employer: str, requirement: str, schedule: str) -> None:
+    def __init__(
+        self,
+        id: str,
+        name: str,
+        link: str,
+        salary: str | dict,
+        employer: str,
+        requirement: str,
+        schedule: str,
+    ) -> None:
         """Initialization of objects in Vacancy class."""
         salary_from = 0
         salary_to = 0
@@ -14,7 +23,7 @@ class Vacancy:
             salary_from, salary_to = Vacancy.__get_salary_data_from_dict(salary)
         elif type(salary) is str:
             salary_from, salary_to = Vacancy.__get_salary_data_from_str(salary)
-        self.vacancy_id: str = vacancy_id
+        self.id: str = id
         self.name: str = name
         self.link: str = link
         self.salary_from: int = int(salary_from)
@@ -100,11 +109,12 @@ class Vacancy:
 
     def __hash__(self):
         """Метод настройки хеширования объектов класса Vacancy."""
-        return hash((self.vacancy_id, self.name))
+        return hash((self.id, self.name))
 
     @classmethod
     def cast_to_object_list(cls, data: list) -> list:
-        """Класс-метод для создания списка объектов вакансий из списка словарей с данными."""
+        """Класс-метод для создания списка объектов вакансий из
+        списка словарей с данными."""
 
         obj_list = list()
 
@@ -125,7 +135,7 @@ class Vacancy:
     def object_to_dict(self) -> dict:
         """Метод для преобразования объекта класса в словарь значений."""
         vacancy_dict: dict = dict()
-        vacancy_dict["vacancy_id"] = self.vacancy_id
+        vacancy_dict["id"] = self.id
         vacancy_dict["name"] = self.name
         vacancy_dict["link"] = self.link
         vacancy_dict["salary_from"] = self.salary_from
