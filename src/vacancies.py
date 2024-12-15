@@ -157,7 +157,6 @@ class Vacancy:
         """Определение значений по зарплате из строки: от, до и диапазон."""
         salary_from = 0
         salary_to = 0
-        salary_range = salary_data
         salary_data = salary_data.replace(" ", "")
         if "-" in salary_data:
             salary_from, salary_to = re.findall(r"\d+", salary_data, flags=0)

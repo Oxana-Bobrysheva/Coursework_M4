@@ -73,7 +73,7 @@ class JsonFile(FileWork):
         else:
             print("Переданный объект не является объектом класса Vacancy.")
 
-    def delete_vacancy(self, vacancy: Any) -> None:
+    def delete_vacancy(self, vacancy) -> None:
         """Удаление вакансии из файла JSON."""
         # Проверка принадлежности переменной классу
         if isinstance(vacancy, Vacancy):
