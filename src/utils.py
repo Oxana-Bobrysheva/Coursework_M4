@@ -54,9 +54,9 @@ def print_vacancies(vacancy_list: list) -> None:
         for vacancy in vacancy_list:
             print(
                 f"""Вакансия: {vacancy.name},
-                зарплата: {vacancy.salary_range},
+                зарплата: {vacancy.salary_from} - {vacancy.salary_to},
                 работодатель: {vacancy.employer},
-                график работы: {vacancy.employment}."""
+                график работы: {vacancy.schedule}."""
             )
     else:
         print("Список вакансий пуст.")

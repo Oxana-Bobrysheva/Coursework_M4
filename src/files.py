@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 import json
-
+import os
 from src.vacancies import Vacancy
 
 
@@ -28,7 +28,7 @@ class JsonFile(FileWork):
     """Class to work with json files that contain info about vacancies."""
 
     def __init__(self):
-        self.__file_path = "../data/vacancies.json"
+        self.__file_path = "vacancies.json"
 
     def get_vacancies_from_file(self):
         """Получение списка вакансий из файла JSON."""

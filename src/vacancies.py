@@ -1,3 +1,5 @@
+import re
+
 class Vacancy:
     """Class to create vacancies"""
 
@@ -7,7 +9,7 @@ class Vacancy:
         salary_from = 0
         salary_to = 0
         if salary is None:
-            salary_from, salary_to = "Нижний порог зарплаты не указан", "Верхний порог зарплаты не указан"
+            salary_from, salary_to = 0, 0
         elif type(salary) is dict:
             salary_from, salary_to = Vacancy.__get_salary_data_from_dict(salary)
         elif type(salary) is str:
@@ -115,7 +117,6 @@ class Vacancy:
                 item["salary"],
                 item["employer"]["name"],
                 item["snippet"]["requirement"],
-                item["employment"]["name"],
                 item["schedule"]["name"],
             )
             obj_list.append(new_vacancy)
@@ -139,18 +140,18 @@ class Vacancy:
         """Определение значений по зарплате из словаря: от, до и диапазон."""
         salary_from = 0
         salary_to = 0
-        salary_range = ""
+
         if salary_data["from"] and salary_data["to"]:
             salary_from = salary_data["from"]
             salary_to = salary_data["to"]
-            salary_range = f'{salary_data["from"]}-{salary_data["to"]} {salary_data["currency"]}'
+
         elif salary_data["from"]:
             salary_from = salary_data["from"]
-            salary_range = f'От {salary_data["from"]} {salary_data["currency"]}'
+
         elif salary_data["to"]:
             salary_to = salary_data["to"]
-            salary_range = f'До {salary_data["to"]} {salary_data["currency"]}'
-        return salary_from, salary_to, salary_range
+
+        return salary_from, salary_to
 
     @staticmethod
     def __get_salary_data_from_str(salary_data: str) -> tuple:
