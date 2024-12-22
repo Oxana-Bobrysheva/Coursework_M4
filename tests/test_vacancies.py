@@ -19,9 +19,7 @@ class TestVacancyClass(unittest.TestCase):
         self.assertFalse(vacancy1 == vacancy2)  # Check equality
         self.assertTrue(vacancy1 >= vacancy2)  # Check greater than or equal
         self.assertFalse(vacancy1 < vacancy2)  # Check less than
-        # Add more comparison tests based on your requirements
 
-    # Add more test methods for other functionalities like __hash__, cast_to_object_list, object_to_dict, etc.
 
 
 if __name__ == '__main__':
