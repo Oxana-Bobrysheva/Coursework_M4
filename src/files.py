@@ -101,3 +101,5 @@ class JsonFile(FileWork):
                 print("Файл не найден.")
         else:
             print("Переданный объект не является объектом класса Vacancy.")
+
+
