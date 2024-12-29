@@ -33,6 +33,5 @@ class TestJsonFileClass(unittest.TestCase):
             mock_open.assert_called_with(file_path, "w", encoding="UTF-8")
 
 
-
 if __name__ == '__main__':
     unittest.main()
